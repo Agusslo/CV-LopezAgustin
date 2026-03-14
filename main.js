@@ -1,34 +1,66 @@
-// Año dinámico en el footer
-document.getElementById('year').textContent = new Date().getFullYear();
+// Año dinámico
+const yearElement = document.getElementById("year");
+if (yearElement) {
+  yearElement.textContent = new Date().getFullYear();
+}
 
 // Menú mobile
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
-menuToggle?.addEventListener('click', () => {
-const open = navLinks.classList.toggle('open');
-menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-});
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+const navItems = document.querySelectorAll(".nav__links a");
 
-// Tema claro/oscuro (persistente)
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = navLinks.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  navItems.forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
+// Tema claro / oscuro persistente
 const root = document.documentElement;
-const themeToggle = document.getElementById('themeToggle');
-const saved = localStorage.getItem('theme');
-if (saved === 'light') root.classList.add('light');
-themeToggle?.addEventListener('click', () => {
-root.classList.toggle('light');
-localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
-themeToggle.textContent = root.classList.contains('light') ? '☀' : '☾';
-});
-themeToggle.textContent = root.classList.contains('light') ? '☀' : '☾';
+const themeToggle = document.getElementById("themeToggle");
+const savedTheme = localStorage.getItem("theme");
 
-// Scroll-reveal simple
-const observer = new IntersectionObserver((entries) => {
-entries.forEach(e => {
-    if (e.isIntersecting) {
-    e.target.classList.add('visible');
-    observer.unobserve(e.target);
-    }
-});
-}, { threshold: 0.12 });
+if (savedTheme === "light") {
+  root.classList.add("light");
+}
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+if (themeToggle) {
+  themeToggle.textContent = root.classList.contains("light") ? "☀" : "☾";
+
+  themeToggle.addEventListener("click", () => {
+    root.classList.toggle("light");
+
+    const currentTheme = root.classList.contains("light") ? "light" : "dark";
+    localStorage.setItem("theme", currentTheme);
+    themeToggle.textContent = currentTheme === "light" ? "☀" : "☾";
+  });
+}
+
+// Animación reveal al hacer scroll
+const revealElements = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+
+  revealElements.forEach((element) => observer.observe(element));
+} else {
+  revealElements.forEach((element) => element.classList.add("visible"));
+}
