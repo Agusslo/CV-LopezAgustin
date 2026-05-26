@@ -4,25 +4,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Agustín Nicolás López — CV | Portfolio</title>
-  <meta
-    name="description"
-    content="CV y portfolio de Agustín Nicolás López, desarrollador junior enfocado en desarrollo web, APIs REST y bases de datos."
-  />
+  <meta name="description" content="CV y portfolio de Agustín Nicolás López, desarrollador junior enfocado en desarrollo web, APIs REST y bases de datos." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233d7eff'/%3E%3Cpath d='M8 24L13.5 10H18.5L24 24H21L19.6 20H12.4L11 24H8ZM13.3 17.5H18.7L16 11L13.3 17.5Z' fill='white'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <!-- NOISE OVERLAY -->
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- NAV -->
   <header class="nav">
     <div class="container nav__inner">
-      <a class="brand" href="#top">A<span>G</span>US</a>
+      <a class="brand" href="#top" aria-label="Agustín López — inicio">
+        <svg class="brand__logo" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="34" height="34" rx="9" fill="#3d7eff"/>
+          <path d="M7.5 25L12.8 11H15.4L20.7 25H18.1L16.8 21.5H11.4L10.1 25H7.5ZM12.1 19.5H16.1L14.1 13.8L12.1 19.5Z" fill="white"/>
+          <rect x="21.5" y="11" width="2.2" height="11.5" rx="1.1" fill="white"/>
+          <rect x="21.5" y="20.5" width="5" height="2.2" rx="1.1" fill="white"/>
+          <circle cx="28.5" cy="8" r="2.5" fill="white" opacity="0.5"/>
+          <circle cx="28.5" cy="8" r="1.2" fill="#3d7eff"/>
+        </svg>
+        <span class="brand__text">agus<span class="brand__accent">.</span>dev</span>
+      </a>
 
       <nav class="nav__links" id="navLinks">
         <a href="#perfil">Perfil</a>
-        <a href="#habilidades">Habilidades</a>
+        <a href="#habilidades">Skills</a>
         <a href="#experiencia">Experiencia</a>
         <a href="#educacion">Educación</a>
         <a href="#proyectos">Proyectos</a>
@@ -30,7 +41,10 @@
       </nav>
 
       <div class="nav__actions">
-        <button id="themeToggle" class="btn btn--ghost btn--icon" aria-label="Cambiar tema">☾</button>
+        <button id="themeToggle" class="btn btn--ghost btn--icon" aria-label="Cambiar tema">
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
         <button id="menuToggle" class="hamburger" aria-label="Abrir menú" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -39,54 +53,95 @@
   </header>
 
   <main id="top">
+
     <!-- HERO -->
     <section class="hero container reveal">
       <div class="hero__content">
-        <p class="eyebrow">Portfolio · CV · UTN</p>
-        <h1>Agustín Nicolás López</h1>
-        <p class="subtitle">Desarrollador Junior · Desarrollo Web · APIs REST · Bases de Datos</p>
+        <div class="eyebrow-wrap">
+          <span class="eyebrow-dot"></span>
+          <p class="eyebrow">Disponible · UTN · Buenos Aires</p>
+        </div>
+
+        <h1>Agustín<br /><em>Nicolás</em><br />López</h1>
+
+        <p class="subtitle">Full Stack Developer &mdash; Web · APIs REST · Bases de Datos</p>
 
         <p class="muted hero__description">
-          Estudiante avanzado de la Tecnicatura en Sistemas de Programación en la UTN, con 6 materias y tesis pendientes.
-          Tengo experiencia en Python, JavaScript y SQL, con foco en desarrollo web, APIs REST y bases de datos.
-          Busco una oportunidad en desarrollo Full Stack para seguir creciendo y aportar valor en equipos dinámicos.
+          Estudiante avanzado de la Tecnicatura en Sistemas de Programación en la UTN,
+          con experiencia en Python, JavaScript y SQL. Busco sumarme a un equipo donde
+          pueda aprender rápido, aportar valor real y seguir creciendo como desarrollador Full Stack.
         </p>
 
         <div class="hero__cta">
-          <a class="btn" href="Agustin-Lopez-CV.pdf" download>Descargar CV</a>
+          <a class="btn btn--primary" href="Agustin-Lopez-CV.pdf" download>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Descargar CV
+          </a>
           <a class="btn btn--ghost" href="mailto:agus.lopez042004@gmail.com">Escribime</a>
         </div>
 
         <div class="hero__links">
-          <a href="mailto:agus.lopez042004@gmail.com">agus.lopez042004@gmail.com</a>
-          <span>·</span>
-          <a href="https://github.com/Agusslo" target="_blank" rel="noopener">GitHub</a>
-          <span>·</span>
-          <a href="https://www.linkedin.com/in/aguslopezz/" target="_blank" rel="noopener">LinkedIn</a>
-          <span>·</span>
-          <a href="https://wa.me/541123756940" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="mailto:agus.lopez042004@gmail.com">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            agus.lopez042004@gmail.com
+          </a>
+          <a href="https://github.com/Agusslo" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/aguslopezz/" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://wa.me/541123756940" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 5.26 5.26l1.14-.93a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.15z"/></svg>
+            WhatsApp
+          </a>
         </div>
       </div>
 
       <aside class="hero__card glass">
-        <div class="hero__badge">Disponible para oportunidades junior</div>
+        <div class="hero__badge">
+          <span class="pulse"></span>
+          Disponible para oportunidades junior
+        </div>
 
         <ul class="hero__facts">
-          <li><strong>Ubicación:</strong> Argentina</li>
-          <li><strong>Idiomas:</strong> Español nativo · Inglés intermedio</li>
-          <li><strong>Stack:</strong> Python · JavaScript · SQL · HTML · CSS</li>
-          <li><strong>Objetivo:</strong> Desarrollo Full Stack</li>
+          <li>
+            <span class="fact__label">Ubicación</span>
+            <span class="fact__value">Argentina 🇦🇷</span>
+          </li>
+          <li>
+            <span class="fact__label">Idiomas</span>
+            <span class="fact__value">Español · Inglés intermedio</span>
+          </li>
+          <li>
+            <span class="fact__label">Stack</span>
+            <span class="fact__value">Python · JS · SQL · HTML · CSS</span>
+          </li>
+          <li>
+            <span class="fact__label">Objetivo</span>
+            <span class="fact__value">Desarrollo Full Stack</span>
+          </li>
+          <li>
+            <span class="fact__label">Carrera</span>
+            <span class="fact__value">UTN — Tec. Sist. Programación</span>
+          </li>
         </ul>
+
+        <a class="btn btn--primary hero__card-btn" href="Agustin-Lopez-CV.pdf" download>
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Descargar CV
+        </a>
       </aside>
     </section>
 
     <!-- PERFIL -->
     <section id="perfil" class="container section reveal">
       <div class="section__heading">
-        <span class="section__label">Perfil</span>
+        <span class="section__label">01 — Perfil</span>
         <h2>Perfil profesional</h2>
       </div>
-
       <div class="single-card">
         <p>
           Soy estudiante avanzado de programación en UTN y desarrollador junior con base en desarrollo web,
@@ -99,19 +154,22 @@
     <!-- HABILIDADES -->
     <section id="habilidades" class="container section reveal">
       <div class="section__heading">
-        <span class="section__label">Skills</span>
+        <span class="section__label">02 — Skills</span>
         <h2>Habilidades técnicas</h2>
       </div>
 
       <div class="skills-grid">
         <article class="card">
+          <div class="card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
           <h3>Lenguajes</h3>
           <ul class="tags">
-            <li><span class="tag">C</span></li>
+            <li><span class="tag">Python</span></li>
+            <li><span class="tag">JavaScript</span></li>
             <li><span class="tag">C#</span></li>
             <li><span class="tag">Java</span></li>
-            <li><span class="tag">JavaScript</span></li>
-            <li><span class="tag">Python</span></li>
+            <li><span class="tag">C</span></li>
             <li><span class="tag">HTML</span></li>
             <li><span class="tag">CSS</span></li>
             <li><span class="tag">Lua</span></li>
@@ -119,7 +177,10 @@
         </article>
 
         <article class="card">
-          <h3>Bases de datos y herramientas</h3>
+          <div class="card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <h3>Bases de datos & Tools</h3>
           <ul class="tags">
             <li><span class="tag">MySQL</span></li>
             <li><span class="tag">MongoDB</span></li>
@@ -129,11 +190,14 @@
         </article>
 
         <article class="card">
+          <div class="card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
           <h3>Conceptos</h3>
           <ul class="tags">
             <li><span class="tag">Desarrollo Web</span></li>
             <li><span class="tag">Clean Code</span></li>
-            <li><span class="tag">Lógica de Programación</span></li>
+            <li><span class="tag">Lógica de Prog.</span></li>
             <li><span class="tag">Trabajo en Equipo</span></li>
           </ul>
         </article>
@@ -143,49 +207,48 @@
     <!-- EXPERIENCIA -->
     <section id="experiencia" class="container section reveal">
       <div class="section__heading">
-        <span class="section__label">Experiencia</span>
+        <span class="section__label">03 — Experiencia</span>
         <h2>Experiencia laboral</h2>
       </div>
 
-      <div class="grid cards">
-        <article class="card">
-          <header class="card__header">
-            <div>
-              <h3>Kiosco Baires10 — Encargado</h3>
-              <p class="card__meta">2024 – 2026</p>
-            </div>
-          </header>
-          <ul class="list">
-            <li>Supervisión del personal y manejo operativo.</li>
-            <li>Coordinación con proveedores y control de stock.</li>
-          </ul>
+      <div class="exp-list">
+        <article class="exp-item card">
+          <div class="exp-item__left">
+            <span class="exp-year">2024–2026</span>
+          </div>
+          <div class="exp-item__right">
+            <h3>Encargado — Kiosco Baires10</h3>
+            <ul class="list">
+              <li>Supervisión del personal y manejo operativo del negocio.</li>
+              <li>Coordinación con proveedores y control de stock.</li>
+            </ul>
+          </div>
         </article>
 
-        <article class="card">
-          <header class="card__header">
-            <div>
-              <h3>Community Manager — Freelance</h3>
-              <p class="card__meta">2024 – 2025</p>
-            </div>
-          </header>
-          <ul class="list">
-            <li>Gestión de redes sociales y creación de contenido.</li>
-            <li>Seguimiento de métricas y rendimiento de campañas.</li>
-          </ul>
+        <article class="exp-item card">
+          <div class="exp-item__left">
+            <span class="exp-year">2024–2025</span>
+          </div>
+          <div class="exp-item__right">
+            <h3>Community Manager — Freelance</h3>
+            <ul class="list">
+              <li>Gestión de redes sociales y creación de contenido.</li>
+              <li>Seguimiento de métricas y rendimiento de campañas.</li>
+            </ul>
+          </div>
         </article>
 
-        <article class="card">
-          <header class="card__header">
-            <div>
-              <h3>Helados & Café Pirulo — Encargado</h3>
-              <p class="card__meta">2021 – 2024</p>
-            </div>
-          </header>
-          <ul class="list">
-            <li>Manejo de personal.</li>
-            <li>Coordinación con proveedores y control de stock.</li>
-            <li>Gestión de compras y administración del negocio.</li>
-          </ul>
+        <article class="exp-item card">
+          <div class="exp-item__left">
+            <span class="exp-year">2021–2024</span>
+          </div>
+          <div class="exp-item__right">
+            <h3>Encargado — Helados & Café Pirulo</h3>
+            <ul class="list">
+              <li>Manejo de personal y coordinación con proveedores.</li>
+              <li>Control de stock y gestión de compras del negocio.</li>
+            </ul>
+          </div>
         </article>
       </div>
     </section>
@@ -193,7 +256,7 @@
     <!-- EDUCACIÓN -->
     <section id="educacion" class="container section reveal">
       <div class="section__heading">
-        <span class="section__label">Formación</span>
+        <span class="section__label">04 — Formación</span>
         <h2>Educación</h2>
       </div>
 
@@ -201,18 +264,22 @@
         <article class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-content card">
-            <h3>Universidad Tecnológica Nacional (UTN)</h3>
-            <p class="card__meta">2022 – Actualidad</p>
-            <p>Tecnicatura en Sistemas de Programación</p>
+            <div class="tl-header">
+              <h3>Universidad Tecnológica Nacional (UTN)</h3>
+              <span class="card__meta">2022 — Actualidad</span>
+            </div>
+            <p class="muted">Tecnicatura en Sistemas de Programación · 6 materias y tesis pendientes</p>
           </div>
         </article>
 
         <article class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-content card">
-            <h3>Instituto María Auxiliadora</h3>
-            <p class="card__meta">2016 – 2021</p>
-            <p>Bachiller en Economía y Administración</p>
+            <div class="tl-header">
+              <h3>Instituto María Auxiliadora</h3>
+              <span class="card__meta">2016 — 2021</span>
+            </div>
+            <p class="muted">Bachiller en Economía y Administración</p>
           </div>
         </article>
       </div>
@@ -221,47 +288,74 @@
     <!-- PROYECTOS -->
     <section id="proyectos" class="container section reveal">
       <div class="section__heading">
-        <span class="section__label">Portfolio</span>
+        <span class="section__label">05 — Portfolio</span>
         <h2>Proyectos destacados</h2>
       </div>
 
       <div class="grid projects">
         <article class="card card--project">
+          <div class="proj-num">01</div>
           <div class="card__head">
             <div>
-              <h3>GameSense — Página Web E-Commerce</h3>
-              <p class="stack">HTML · CSS · JavaScript · MySQL</p>
+              <h3>GameSense</h3>
+              <p class="card__desc">Plataforma E-Commerce con carrito, validaciones y conexión a base de datos.</p>
             </div>
           </div>
-
-          <p>
-            Desarrollo de una plataforma de e-commerce con carrito de compras, validaciones
-            y conexión a base de datos.
-          </p>
-
+          <ul class="tags">
+            <li><span class="tag tag--sm">HTML</span></li>
+            <li><span class="tag tag--sm">CSS</span></li>
+            <li><span class="tag tag--sm">JavaScript</span></li>
+            <li><span class="tag tag--sm">MySQL</span></li>
+          </ul>
           <div class="card__foot">
-            <a class="btn btn--sm" href="https://github.com/Agusslo/GameSense-utn-p3" target="_blank" rel="noopener">
+            <a class="btn btn--sm btn--ghost" href="https://github.com/Agusslo/GameSense-utn-p3" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
               Ver código
             </a>
           </div>
         </article>
 
         <article class="card card--project">
+          <div class="proj-num">02</div>
           <div class="card__head">
             <div>
-              <h3>Videojuego 2D — Pygame</h3>
-              <p class="stack">Python · Pygame</p>
+              <h3>Meap War</h3>
+              <p class="card__desc">Videojuego 2D arcade con lógica de juego, controles y sistema de puntaje.</p>
             </div>
           </div>
-
-          <p>
-            Videojuego 2D estilo arcade con lógica de juego, controles del jugador
-            y sistema de puntaje.
-          </p>
-
+          <ul class="tags">
+            <li><span class="tag tag--sm">Python</span></li>
+            <li><span class="tag tag--sm">Pygame</span></li>
+          </ul>
           <div class="card__foot">
-            <a class="btn btn--sm" href="https://github.com/Agusslo/Meap-War-Pygame" target="_blank" rel="noopener">
+            <a class="btn btn--sm btn--ghost" href="https://github.com/Agusslo/Meap-War-Pygame" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
               Ver código
+            </a>
+          </div>
+        </article>
+
+        <article class="card card--project">
+          <div class="proj-num">03</div>
+          <div class="card__head">
+            <div>
+              <h3>Piece Tech</h3>
+              <p class="card__desc">Landing page para empresa de tecnología con diseño moderno, secciones animadas y formulario de contacto.</p>
+            </div>
+          </div>
+          <ul class="tags">
+            <li><span class="tag tag--sm">HTML</span></li>
+            <li><span class="tag tag--sm">CSS</span></li>
+            <li><span class="tag tag--sm">JavaScript</span></li>
+          </ul>
+          <div class="card__foot card__foot--row">
+            <a class="btn btn--sm btn--ghost" href="https://github.com/Agusslo/PieceTech" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              Ver código
+            </a>
+            <a class="btn btn--sm btn--primary" href="https://agusslo.github.io/PieceTech/" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Ver sitio
             </a>
           </div>
         </article>
@@ -271,23 +365,32 @@
     <!-- CONTACTO -->
     <section id="contacto" class="container section reveal">
       <div class="section__heading">
-        <span class="section__label">Contacto</span>
+        <span class="section__label">06 — Contacto</span>
         <h2>Hablemos</h2>
       </div>
 
-      <div class="contact card">
-        <a class="btn" href="mailto:agus.lopez042004@gmail.com">Email</a>
-        <a class="btn btn--ghost" href="https://www.linkedin.com/in/aguslopezz/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn btn--ghost" href="https://github.com/Agusslo" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn btn--ghost" href="https://wa.me/541123756940" target="_blank" rel="noopener">WhatsApp</a>
+      <div class="contact-block card">
+        <p class="contact-block__text">
+          ¿Tenés una oportunidad o simplemente querés charlar? Mandame un mensaje.
+        </p>
+        <div class="contact-block__actions">
+          <a class="btn btn--primary" href="mailto:agus.lopez042004@gmail.com">Mandar email</a>
+          <a class="btn btn--ghost" href="https://www.linkedin.com/in/aguslopezz/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn--ghost" href="https://github.com/Agusslo" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn--ghost" href="https://wa.me/541123756940" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
       </div>
     </section>
+
   </main>
 
   <footer class="footer">
     <div class="container footer__inner">
       <span>© <span id="year"></span> Agustín Nicolás López</span>
-      <a href="#top" class="to-top">Volver arriba ↑</a>
+      <a href="#top" class="to-top">
+        Volver arriba
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+      </a>
     </div>
   </footer>
 

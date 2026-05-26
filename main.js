@@ -1,13 +1,11 @@
-// Año dinámico
-const yearElement = document.getElementById("year");
-if (yearElement) {
-  yearElement.textContent = new Date().getFullYear();
-}
+// ── Año dinámico ──────────────────────────────────
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Menú mobile
+// ── Menú mobile ───────────────────────────────────
 const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
-const navItems = document.querySelectorAll(".nav__links a");
+const navLinks   = document.getElementById("navLinks");
+const navItems   = document.querySelectorAll(".nav__links a");
 
 if (menuToggle && navLinks) {
   menuToggle.addEventListener("click", () => {
@@ -15,7 +13,7 @@ if (menuToggle && navLinks) {
     menuToggle.setAttribute("aria-expanded", String(isOpen));
   });
 
-  navItems.forEach((link) => {
+  navItems.forEach(link => {
     link.addEventListener("click", () => {
       navLinks.classList.remove("open");
       menuToggle.setAttribute("aria-expanded", "false");
@@ -23,44 +21,76 @@ if (menuToggle && navLinks) {
   });
 }
 
-// Tema claro / oscuro persistente
-const root = document.documentElement;
+// ── Tema claro / oscuro ───────────────────────────
+const root        = document.documentElement;
 const themeToggle = document.getElementById("themeToggle");
-const savedTheme = localStorage.getItem("theme");
+const iconMoon    = themeToggle?.querySelector(".icon-moon");
+const iconSun     = themeToggle?.querySelector(".icon-sun");
 
-if (savedTheme === "light") {
-  root.classList.add("light");
+function applyTheme(theme) {
+  if (theme === "light") {
+    root.classList.add("light");
+    if (iconMoon) iconMoon.style.display = "none";
+    if (iconSun)  iconSun.style.display  = "block";
+  } else {
+    root.classList.remove("light");
+    if (iconMoon) iconMoon.style.display = "block";
+    if (iconSun)  iconSun.style.display  = "none";
+  }
+}
+
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme) {
+  applyTheme(savedTheme);
+} else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+  applyTheme("light");
 }
 
 if (themeToggle) {
-  themeToggle.textContent = root.classList.contains("light") ? "☀" : "☾";
-
   themeToggle.addEventListener("click", () => {
-    root.classList.toggle("light");
-
-    const currentTheme = root.classList.contains("light") ? "light" : "dark";
-    localStorage.setItem("theme", currentTheme);
-    themeToggle.textContent = currentTheme === "light" ? "☀" : "☾";
+    const next = root.classList.contains("light") ? "dark" : "light";
+    localStorage.setItem("theme", next);
+    applyTheme(next);
   });
 }
 
-// Animación reveal al hacer scroll
-const revealElements = document.querySelectorAll(".reveal");
+// ── Reveal on scroll ──────────────────────────────
+const revealEls = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach((entry) => {
+  const obs = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
-          obs.unobserve(entry.target);
+          observer.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.12 }
+    { threshold: 0.08 }
   );
-
-  revealElements.forEach((element) => observer.observe(element));
+  revealEls.forEach(el => obs.observe(el));
 } else {
-  revealElements.forEach((element) => element.classList.add("visible"));
+  revealEls.forEach(el => el.classList.add("visible"));
 }
+
+// ── Active nav link on scroll ─────────────────────
+const sections    = document.querySelectorAll("section[id]");
+const navAnchors  = document.querySelectorAll(".nav__links a[href^='#']");
+
+const activateNav = () => {
+  let current = "";
+  sections.forEach(sec => {
+    const top = sec.getBoundingClientRect().top;
+    if (top <= 120) current = sec.getAttribute("id");
+  });
+
+  navAnchors.forEach(a => {
+    a.style.color = "";
+    if (a.getAttribute("href") === `#${current}`) {
+      a.style.color = "var(--text)";
+    }
+  });
+};
+
+window.addEventListener("scroll", activateNav, { passive: true });
