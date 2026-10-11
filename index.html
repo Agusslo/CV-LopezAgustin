@@ -3,50 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Agustín Nicolás López — CV | Portfolio</title>
-  <meta name="description" content="CV y portfolio de Agustín Nicolás López, desarrollador junior enfocado en desarrollo web, APIs REST y bases de datos." />
+  <title>Agustín Nicolás López — Full Stack Developer Jr</title>
+  <meta name="description" content="Portfolio de Agustín Nicolás López, desarrollador Full Stack junior con Angular, TypeScript y Supabase." />
+  <meta name="theme-color" content="#070b13" />
+  <meta property="og:title" content="Agustín Nicolás López — Full Stack Developer Jr" />
+  <meta property="og:description" content="Angular · TypeScript · Supabase. Proyectos, experiencia y CV en español e inglés." />
+  <meta property="og:type" content="website" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233d7eff'/%3E%3Cpath d='M8 24L13.5 10H18.5L24 24H21L19.6 20H12.4L11 24H8ZM13.3 17.5H18.7L16 11L13.3 17.5Z' fill='white'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script>
+    /* Aplica tema e idioma antes de pintar, para evitar parpadeo */
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "light" || (!t && matchMedia("(prefers-color-scheme: light)").matches)) {
+          document.documentElement.classList.add("light");
+        }
+        var l = localStorage.getItem("lang") || ((navigator.language || "es").toLowerCase().indexOf("es") === 0 ? "es" : "en");
+        document.documentElement.setAttribute("data-lang", l);
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
-
-  <!-- NOISE OVERLAY -->
-  <div class="noise" aria-hidden="true"></div>
+  <a class="skip" href="#proyectos" data-i18n="skip">Saltar a proyectos</a>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
 
   <!-- NAV -->
-  <header class="nav">
+  <header class="nav" id="nav">
     <div class="container nav__inner">
-      <a class="brand" href="#top" aria-label="Agustín López — inicio">
-        <svg class="brand__logo" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <a class="brand" href="#top" aria-label="agus.dev">
+        <svg class="brand__logo" width="32" height="32" viewBox="0 0 34 34" fill="none" aria-hidden="true">
           <rect width="34" height="34" rx="9" fill="#3d7eff"/>
           <path d="M7.5 25L12.8 11H15.4L20.7 25H18.1L16.8 21.5H11.4L10.1 25H7.5ZM12.1 19.5H16.1L14.1 13.8L12.1 19.5Z" fill="white"/>
           <rect x="21.5" y="11" width="2.2" height="11.5" rx="1.1" fill="white"/>
           <rect x="21.5" y="20.5" width="5" height="2.2" rx="1.1" fill="white"/>
-          <circle cx="28.5" cy="8" r="2.5" fill="white" opacity="0.5"/>
-          <circle cx="28.5" cy="8" r="1.2" fill="#3d7eff"/>
         </svg>
         <span class="brand__text">agus<span class="brand__accent">.</span>dev</span>
       </a>
 
-      <nav class="nav__links" id="navLinks">
-        <a href="#perfil">Perfil</a>
-        <a href="#habilidades">Skills</a>
-        <a href="#experiencia">Experiencia</a>
-        <a href="#educacion">Educación</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#contacto">Contacto</a>
+      <nav class="nav__links" id="navLinks" aria-label="Secciones">
+        <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
+        <a href="#skills" data-i18n="nav.skills">Skills</a>
+        <a href="#experiencia" data-i18n="nav.experience">Experiencia</a>
+        <a href="#educacion" data-i18n="nav.education">Educación</a>
+        <a href="#contacto" data-i18n="nav.contact">Contacto</a>
       </nav>
 
       <div class="nav__actions">
-        <button id="themeToggle" class="btn btn--ghost btn--icon" aria-label="Cambiar tema">
-          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <div class="lang" role="group" aria-label="Idioma / Language">
+          <button type="button" class="lang__btn" data-set-lang="es" aria-pressed="true">ES</button>
+          <button type="button" class="lang__btn" data-set-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <button id="themeToggle" class="icon-btn" type="button" data-i18n-aria="theme" aria-label="Cambiar tema">
+          <svg class="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v2.5M12 20v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M1.5 12H4M20 12h2.5M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
         </button>
-        <button id="menuToggle" class="hamburger" aria-label="Abrir menú" aria-expanded="false">
-          <span></span><span></span><span></span>
+        <button id="menuToggle" class="hamburger" type="button" data-i18n-aria="menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span>
         </button>
       </div>
     </div>
@@ -55,330 +73,315 @@
   <main id="top">
 
     <!-- HERO -->
-    <section class="hero container reveal">
+    <section class="hero container">
       <div class="hero__content">
-        <div class="eyebrow-wrap">
-          <span class="eyebrow-dot"></span>
-          <p class="eyebrow">Disponible · UTN · Buenos Aires</p>
-        </div>
-
-        <h1>Agustín<br /><em>Nicolás</em><br />López</h1>
-
-        <p class="subtitle">Full Stack Developer &mdash; Web · APIs REST · Bases de Datos</p>
-
-        <p class="muted hero__description">
-          Estudiante avanzado de la Tecnicatura en Sistemas de Programación en la UTN,
-          con experiencia en Python, JavaScript y SQL. Busco sumarme a un equipo donde
-          pueda aprender rápido, aportar valor real y seguir creciendo como desarrollador Full Stack.
+        <p class="status reveal">
+          <span class="status__dot"></span>
+          <span data-i18n="hero.status">Disponible para mi primer rol como desarrollador</span>
         </p>
 
-        <div class="hero__cta">
-          <a class="btn btn--primary" href="Agustin-Lopez-CV.pdf" download>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Descargar CV
+        <h1 class="hero__title reveal">
+          Agustín<br />Nicolás <span class="grad">López</span>
+        </h1>
+
+        <p class="hero__role reveal">
+          <span data-i18n="hero.role">Desarrollador Full Stack Jr</span>
+          <span class="hero__role-sep">/</span>
+          <span class="mono">Angular · TypeScript · Supabase</span>
+        </p>
+
+        <p class="hero__pitch reveal" data-i18n-html="hero.pitch">
+          Construyo aplicaciones web completas, del modelo de datos al deploy. Tengo una app en producción con
+          <strong>autenticación, roles, tiempo real y PWA</strong>, y más de 4 años liderando equipos en atención al público.
+        </p>
+
+        <div class="hero__cta reveal">
+          <div class="cv-split">
+            <a class="btn btn--primary" id="cvMain" href="Agustin_Lopez_CV.pdf" download>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span data-i18n="cv.download">Descargar CV</span>
+            </a>
+            <a class="btn btn--primary btn--alt" id="cvAlt" href="Agustin_Lopez_CV_EN.pdf" download data-i18n-title="cv.altTitle" title="Versión en inglés">EN</a>
+          </div>
+          <a class="btn btn--ghost" href="#proyectos">
+            <span data-i18n="hero.seeProjects">Ver proyectos</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
           </a>
-          <a class="btn btn--ghost" href="mailto:agus.lopez042004@gmail.com">Escribime</a>
         </div>
 
-        <div class="hero__links">
-          <a href="mailto:agus.lopez042004@gmail.com">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            agus.lopez042004@gmail.com
-          </a>
-          <a href="https://github.com/Agusslo" target="_blank" rel="noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-            GitHub
-          </a>
-          <a href="https://www.linkedin.com/in/aguslopezz/" target="_blank" rel="noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            LinkedIn
-          </a>
-          <a href="https://wa.me/541123756940" target="_blank" rel="noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 5.26 5.26l1.14-.93a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.15z"/></svg>
-            WhatsApp
-          </a>
-        </div>
+        <ul class="socials reveal">
+          <li><a href="https://github.com/Agusslo" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+          </a></li>
+          <li><a href="https://www.linkedin.com/in/aguslopezz/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+          </a></li>
+          <li><a href="https://wa.me/541123756940" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35ZM12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1 15.29-12.2 9.8 9.8 0 0 1 2.89 6.98c0 5.45-4.44 9.85-9.8 9.85Zm8.42-18.27A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.94L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.69 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.38Z"/></svg>
+          </a></li>
+          <li><a href="mailto:agus.lopez042004@gmail.com" aria-label="Email">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+          </a></li>
+        </ul>
       </div>
 
-      <aside class="hero__card glass">
-        <div class="hero__badge">
-          <span class="pulse"></span>
-          Disponible para oportunidades junior
+      <!-- Tarjeta tipo editor -->
+      <aside class="code-card reveal" aria-label="Resumen">
+        <div class="code-card__bar">
+          <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+          <span class="code-card__file mono">agustin.ts</span>
         </div>
-
-        <ul class="hero__facts">
-          <li>
-            <span class="fact__label">Ubicación</span>
-            <span class="fact__value">Argentina 🇦🇷</span>
-          </li>
-          <li>
-            <span class="fact__label">Idiomas</span>
-            <span class="fact__value">Español · Inglés intermedio</span>
-          </li>
-          <li>
-            <span class="fact__label">Stack</span>
-            <span class="fact__value">Python · JS · SQL · HTML · CSS</span>
-          </li>
-          <li>
-            <span class="fact__label">Objetivo</span>
-            <span class="fact__value">Desarrollo Full Stack</span>
-          </li>
-          <li>
-            <span class="fact__label">Carrera</span>
-            <span class="fact__value">UTN — Tec. Sist. Programación</span>
-          </li>
-        </ul>
-
-        <a class="btn btn--primary hero__card-btn" href="Agustin-Lopez-CV.pdf" download>
-          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Descargar CV
-        </a>
+        <pre class="code mono"><code><span class="k">const</span> <span class="v">agustin</span> = {
+  <span class="p">role</span>: <span class="s">"Full Stack Dev Jr"</span>,
+  <span class="p">stack</span>: [<span class="s">"Angular"</span>, <span class="s">"TypeScript"</span>,
+          <span class="s">"Supabase"</span>, <span class="s">"PostgreSQL"</span>],
+  <span class="p">location</span>: <span class="s">"Buenos Aires, AR"</span>,
+  <span class="p">studying</span>: <span class="s">"UTN · Tec. Programación"</span>,
+  <span class="p">languages</span>: [<span class="s">"es"</span>, <span class="s">"en"</span>],
+  <span class="p">openToWork</span>: <span class="b">true</span>,
+};<span class="caret"></span></code></pre>
+        <div class="code-card__foot">
+          <span class="mono muted" data-i18n="hero.lastShip">último deploy →</span>
+          <a class="mono" href="https://hollownestcinema.vercel.app/" target="_blank" rel="noopener">hollownestcinema.vercel.app ↗</a>
+        </div>
       </aside>
     </section>
 
-    <!-- PERFIL -->
-    <section id="perfil" class="container section reveal">
-      <div class="section__heading">
-        <span class="section__label">01 — Perfil</span>
-        <h2>Perfil profesional</h2>
-      </div>
-      <div class="single-card">
-        <p>
-          Soy estudiante avanzado de programación en UTN y desarrollador junior con base en desarrollo web,
-          lógica de programación y trabajo con bases de datos. Me interesa seguir formándome en entornos donde
-          pueda aprender rápido, trabajar en equipo y participar en proyectos reales con impacto.
-        </p>
+    <!-- STATS -->
+    <section class="container stats reveal" aria-label="Datos">
+      <div class="stat"><span class="stat__n">1</span><span class="stat__l" data-i18n="stats.app">app full stack en producción</span></div>
+      <div class="stat"><span class="stat__n">4+</span><span class="stat__l" data-i18n="stats.years">años liderando equipos</span></div>
+      <div class="stat"><span class="stat__n">UTN</span><span class="stat__l" data-i18n="stats.utn">estudiante avanzado</span></div>
+      <div class="stat"><span class="stat__n">ES·EN</span><span class="stat__l" data-i18n="stats.lang">CV y portfolio bilingüe</span></div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="proyectos" class="container section">
+      <header class="section__head reveal">
+        <span class="section__label mono">01</span>
+        <h2 data-i18n="projects.title">Proyectos</h2>
+        <p class="section__sub" data-i18n="projects.sub">Lo que construí y lo que aprendí haciéndolo.</p>
+      </header>
+
+      <!-- Destacado -->
+      <article class="feature reveal">
+        <div class="feature__body">
+          <div class="feature__top">
+            <span class="pill pill--live"><span class="pill__dot"></span><span data-i18n="projects.live">En producción</span></span>
+            <span class="mono muted">Programación IV · UTN</span>
+          </div>
+          <h3>Hollownest Cinema</h3>
+          <p class="feature__lead" data-i18n="p1.lead">Sistema completo de venta de entradas para un cine, construido a partir de requisitos de un cliente que fueron cambiando durante el cuatrimestre.</p>
+
+          <ul class="checks">
+            <li data-i18n-html="p1.f1"><strong>Supabase + PostgreSQL</strong> con Row Level Security, login con email y Google</li>
+            <li data-i18n-html="p1.f2"><strong>Roles</strong> cliente, empleado y admin con guards de rutas</li>
+            <li data-i18n-html="p1.f3"><strong>Butacas en tiempo real</strong> con Supabase Realtime</li>
+            <li data-i18n-html="p1.f4"><strong>Entradas en PDF con QR</strong> y validación escaneando con la cámara</li>
+            <li data-i18n-html="p1.f5">Candy bar, cupones, combos, <strong>puntos de fidelización</strong> y cancelación con crédito</li>
+            <li data-i18n-html="p1.f6">Panel admin con <strong>reportes, gráficos</strong> y log de actividad · <strong>PWA</strong> instalable</li>
+          </ul>
+
+          <ul class="tags">
+            <li>Angular</li><li>TypeScript</li><li>Signals</li><li>Supabase</li><li>PostgreSQL</li><li>Realtime</li><li>PWA</li><li>Vercel</li>
+          </ul>
+
+          <div class="feature__actions">
+            <a class="btn btn--primary btn--sm" href="https://hollownestcinema.vercel.app/" target="_blank" rel="noopener">
+              <span data-i18n="projects.demo">Ver demo</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Mini mockup de butacas -->
+        <div class="feature__visual" aria-hidden="true">
+          <div class="screen"></div>
+          <div class="seats" id="seats"></div>
+          <div class="seats__legend mono">
+            <span><i class="sw sw--free"></i><span data-i18n="seats.free">libre</span></span>
+            <span><i class="sw sw--taken"></i><span data-i18n="seats.taken">ocupada</span></span>
+            <span><i class="sw sw--vip"></i>VIP</span>
+          </div>
+          <div class="live-chip mono"><span class="pill__dot"></span>realtime</div>
+        </div>
+      </article>
+
+      <div class="projects">
+        <article class="card reveal">
+          <div class="card__top">
+            <span class="pill pill--wip" data-i18n="projects.wip">En desarrollo</span>
+            <span class="mono muted" data-i18n="projects.thesis">Proyecto final</span>
+          </div>
+          <h3>OverCooked 2026</h3>
+          <p data-i18n="p2.desc">App móvil multiplataforma para la gestión de un restaurante, con backend en Supabase y trabajo organizado por ramas.</p>
+          <ul class="tags tags--sm"><li>Ionic</li><li>Capacitor</li><li>TypeScript</li><li>Supabase</li></ul>
+          <div class="card__links">
+            <a href="https://github.com/Agusslo/OverCooked-2026" target="_blank" rel="noopener"><span data-i18n="projects.code">Código</span> ↗</a>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__top">
+            <span class="pill">Landing</span>
+          </div>
+          <h3>Piece Tech</h3>
+          <p data-i18n="p3.desc">Landing comercial sin frameworks: animaciones al hacer scroll, efecto 3D tilt y contacto directo por WhatsApp.</p>
+          <ul class="tags tags--sm"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+          <div class="card__links">
+            <a href="https://agusslo.github.io/PieceTech/" target="_blank" rel="noopener"><span data-i18n="projects.site">Sitio</span> ↗</a>
+            <a href="https://github.com/Agusslo/PieceTech" target="_blank" rel="noopener"><span data-i18n="projects.code">Código</span> ↗</a>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__top">
+            <span class="pill">E-commerce</span>
+          </div>
+          <h3>GameSense</h3>
+          <p data-i18n="p4.desc">Tienda online con carrito, autenticación, validación de formularios y base de datos MySQL.</p>
+          <ul class="tags tags--sm"><li>JavaScript</li><li>MySQL</li><li>HTML</li><li>CSS</li></ul>
+          <div class="card__links">
+            <a href="https://github.com/Agusslo/GameSense-utn-p3" target="_blank" rel="noopener"><span data-i18n="projects.code">Código</span> ↗</a>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__top">
+            <span class="pill" data-i18n="projects.game">Videojuego</span>
+          </div>
+          <h3>Meap War</h3>
+          <p data-i18n="p5.desc">Juego arcade 2D con colisiones, controles del jugador, sistema de puntaje y pantallas de inicio y fin.</p>
+          <ul class="tags tags--sm"><li>Python</li><li>Pygame</li></ul>
+          <div class="card__links">
+            <a href="https://github.com/Agusslo/Meap-War-Pygame" target="_blank" rel="noopener"><span data-i18n="projects.code">Código</span> ↗</a>
+          </div>
+        </article>
       </div>
     </section>
 
-    <!-- HABILIDADES -->
-    <section id="habilidades" class="container section reveal">
-      <div class="section__heading">
-        <span class="section__label">02 — Skills</span>
-        <h2>Habilidades técnicas</h2>
-      </div>
+    <!-- SKILLS -->
+    <section id="skills" class="container section">
+      <header class="section__head reveal">
+        <span class="section__label mono">02</span>
+        <h2 data-i18n="skills.title">Skills</h2>
+        <p class="section__sub" data-i18n="skills.sub">Lo que uso todos los días, y lo que ya trabajé en la carrera.</p>
+      </header>
 
-      <div class="skills-grid">
-        <article class="card">
-          <div class="card__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </div>
-          <h3>Lenguajes</h3>
+      <div class="skills">
+        <article class="skill reveal">
+          <h3><span class="skill__ico mono">&lt;/&gt;</span>Frontend</h3>
           <ul class="tags">
-            <li><span class="tag">Python</span></li>
-            <li><span class="tag">JavaScript</span></li>
-            <li><span class="tag">C#</span></li>
-            <li><span class="tag">Java</span></li>
-            <li><span class="tag">C</span></li>
-            <li><span class="tag">HTML</span></li>
-            <li><span class="tag">CSS</span></li>
-            <li><span class="tag">Lua</span></li>
+            <li class="tag--hl">Angular</li><li class="tag--hl">TypeScript</li><li>JavaScript</li><li>HTML5</li><li>CSS3</li><li>Sass</li><li>React</li><li>Ionic</li><li>PWA</li>
           </ul>
         </article>
-
-        <article class="card">
-          <div class="card__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-          </div>
-          <h3>Bases de datos & Tools</h3>
+        <article class="skill reveal">
+          <h3><span class="skill__ico mono">{ }</span><span data-i18n="skills.back">Backend y datos</span></h3>
           <ul class="tags">
-            <li><span class="tag">MySQL</span></li>
-            <li><span class="tag">MongoDB</span></li>
-            <li><span class="tag">Git</span></li>
-            <li><span class="tag">APIs REST</span></li>
-            <li><span class="tag">React</span></li>
+            <li class="tag--hl">Supabase</li><li class="tag--hl">PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>SQL</li><li>Node.js</li><li>Express.js</li><li data-i18n="skills.rest">APIs REST</li>
           </ul>
         </article>
-
-        <article class="card">
-          <div class="card__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-          </div>
-          <h3>Conceptos</h3>
+        <article class="skill reveal">
+          <h3><span class="skill__ico mono">$_</span><span data-i18n="skills.tools">Herramientas</span></h3>
           <ul class="tags">
-            <li><span class="tag">Desarrollo Web</span></li>
-            <li><span class="tag">Clean Code</span></li>
-            <li><span class="tag">Lógica de Prog.</span></li>
-            <li><span class="tag">Trabajo en Equipo</span></li>
+            <li>Git</li><li>GitHub</li><li>Vercel</li><li>Capacitor</li><li>VS Code</li><li>Linux</li>
+          </ul>
+        </article>
+        <article class="skill reveal">
+          <h3><span class="skill__ico mono">#</span><span data-i18n="skills.other">Otros lenguajes</span></h3>
+          <ul class="tags">
+            <li>Python</li><li>C</li><li>C#</li><li>Java</li><li>Lua</li>
           </ul>
         </article>
       </div>
     </section>
 
     <!-- EXPERIENCIA -->
-    <section id="experiencia" class="container section reveal">
-      <div class="section__heading">
-        <span class="section__label">03 — Experiencia</span>
-        <h2>Experiencia laboral</h2>
-      </div>
+    <section id="experiencia" class="container section">
+      <header class="section__head reveal">
+        <span class="section__label mono">03</span>
+        <h2 data-i18n="exp.title">Experiencia</h2>
+        <p class="section__sub" data-i18n="exp.sub">Antes de programar, aprendí a coordinar equipos y resolver problemas reales todos los días.</p>
+      </header>
 
-      <div class="exp-list">
-        <article class="exp-item card">
-          <div class="exp-item__left">
-            <span class="exp-year">2024–2026</span>
+      <ol class="timeline">
+        <li class="tl reveal">
+          <span class="tl__date mono" data-i18n="exp.d1">2024 — Actualidad</span>
+          <div class="tl__body">
+            <h3><span data-i18n="exp.manager">Encargado</span> <span class="at">@ Kiosco Baires10</span></h3>
+            <p data-i18n="exp.t1">Coordino al personal, la caja, el stock y los pedidos a proveedores; resuelvo los problemas del día a día.</p>
           </div>
-          <div class="exp-item__right">
-            <h3>Encargado — Kiosco Baires10</h3>
-            <ul class="list">
-              <li>Supervisión del personal y manejo operativo del negocio.</li>
-              <li>Coordinación con proveedores y control de stock.</li>
-            </ul>
+        </li>
+        <li class="tl reveal">
+          <span class="tl__date mono">2024 — 2025</span>
+          <div class="tl__body">
+            <h3>Community Manager <span class="at">@ Freelance</span></h3>
+            <p data-i18n="exp.t2">Gestión de redes para varias cuentas: contenido, calendario editorial y análisis de métricas para mejorar resultados.</p>
           </div>
-        </article>
-
-        <article class="exp-item card">
-          <div class="exp-item__left">
-            <span class="exp-year">2024–2025</span>
+        </li>
+        <li class="tl reveal">
+          <span class="tl__date mono">2021 — 2024</span>
+          <div class="tl__body">
+            <h3><span data-i18n="exp.manager">Encargado</span> <span class="at">@ Helados &amp; Café Pirulo</span></h3>
+            <p data-i18n="exp.t3">Capacité y coordiné al equipo de atención; administré compras, inventario y cierres de caja.</p>
           </div>
-          <div class="exp-item__right">
-            <h3>Community Manager — Freelance</h3>
-            <ul class="list">
-              <li>Gestión de redes sociales y creación de contenido.</li>
-              <li>Seguimiento de métricas y rendimiento de campañas.</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="exp-item card">
-          <div class="exp-item__left">
-            <span class="exp-year">2021–2024</span>
-          </div>
-          <div class="exp-item__right">
-            <h3>Encargado — Helados & Café Pirulo</h3>
-            <ul class="list">
-              <li>Manejo de personal y coordinación con proveedores.</li>
-              <li>Control de stock y gestión de compras del negocio.</li>
-            </ul>
-          </div>
-        </article>
-      </div>
+        </li>
+      </ol>
     </section>
 
     <!-- EDUCACIÓN -->
-    <section id="educacion" class="container section reveal">
-      <div class="section__heading">
-        <span class="section__label">04 — Formación</span>
-        <h2>Educación</h2>
-      </div>
+    <section id="educacion" class="container section">
+      <header class="section__head reveal">
+        <span class="section__label mono">04</span>
+        <h2 data-i18n="edu.title">Educación</h2>
+      </header>
 
-      <div class="timeline">
-        <article class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-content card">
-            <div class="tl-header">
-              <h3>Universidad Tecnológica Nacional (UTN)</h3>
-              <span class="card__meta">2022 — Actualidad</span>
-            </div>
-            <p class="muted">Tecnicatura en Sistemas de Programación · 6 materias y tesis pendientes</p>
-          </div>
+      <div class="edu">
+        <article class="edu__item reveal">
+          <span class="edu__date mono" data-i18n="edu.d1">2022 — Actualidad</span>
+          <h3 data-i18n="edu.utn">Tecnicatura Superior en Sistemas de Programación</h3>
+          <p class="muted" data-i18n="edu.utnSub">UTN Avellaneda · Estudiante avanzado, con el proyecto final en curso</p>
         </article>
-
-        <article class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-content card">
-            <div class="tl-header">
-              <h3>Instituto María Auxiliadora</h3>
-              <span class="card__meta">2016 — 2021</span>
-            </div>
-            <p class="muted">Bachiller en Economía y Administración</p>
-          </div>
+        <article class="edu__item reveal">
+          <span class="edu__date mono">2026</span>
+          <h3 data-i18n="edu.uba">Inglés como Lengua Extranjera — Nivel 6</h3>
+          <p class="muted" data-i18n="edu.ubaSub">Laboratorio de Idiomas · Facultad de Filosofía y Letras (UBA)</p>
         </article>
-      </div>
-    </section>
-
-    <!-- PROYECTOS -->
-    <section id="proyectos" class="container section reveal">
-      <div class="section__heading">
-        <span class="section__label">05 — Portfolio</span>
-        <h2>Proyectos destacados</h2>
-      </div>
-
-      <div class="grid projects">
-        <article class="card card--project">
-          <div class="proj-num">01</div>
-          <div class="card__head">
-            <div>
-              <h3>GameSense</h3>
-              <p class="card__desc">Plataforma E-Commerce con carrito, validaciones y conexión a base de datos.</p>
-            </div>
-          </div>
-          <ul class="tags">
-            <li><span class="tag tag--sm">HTML</span></li>
-            <li><span class="tag tag--sm">CSS</span></li>
-            <li><span class="tag tag--sm">JavaScript</span></li>
-            <li><span class="tag tag--sm">MySQL</span></li>
-          </ul>
-          <div class="card__foot">
-            <a class="btn btn--sm btn--ghost" href="https://github.com/Agusslo/GameSense-utn-p3" target="_blank" rel="noopener">
-              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-              Ver código
-            </a>
-          </div>
-        </article>
-
-        <article class="card card--project">
-          <div class="proj-num">02</div>
-          <div class="card__head">
-            <div>
-              <h3>Meap War</h3>
-              <p class="card__desc">Videojuego 2D arcade con lógica de juego, controles y sistema de puntaje.</p>
-            </div>
-          </div>
-          <ul class="tags">
-            <li><span class="tag tag--sm">Python</span></li>
-            <li><span class="tag tag--sm">Pygame</span></li>
-          </ul>
-          <div class="card__foot">
-            <a class="btn btn--sm btn--ghost" href="https://github.com/Agusslo/Meap-War-Pygame" target="_blank" rel="noopener">
-              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-              Ver código
-            </a>
-          </div>
-        </article>
-
-        <article class="card card--project">
-          <div class="proj-num">03</div>
-          <div class="card__head">
-            <div>
-              <h3>Piece Tech</h3>
-              <p class="card__desc">Landing page para empresa de tecnología con diseño moderno, secciones animadas y formulario de contacto.</p>
-            </div>
-          </div>
-          <ul class="tags">
-            <li><span class="tag tag--sm">HTML</span></li>
-            <li><span class="tag tag--sm">CSS</span></li>
-            <li><span class="tag tag--sm">JavaScript</span></li>
-          </ul>
-          <div class="card__foot card__foot--row">
-            <a class="btn btn--sm btn--ghost" href="https://github.com/Agusslo/PieceTech" target="_blank" rel="noopener">
-              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-              Ver código
-            </a>
-            <a class="btn btn--sm btn--primary" href="https://agusslo.github.io/PieceTech/" target="_blank" rel="noopener">
-              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              Ver sitio
-            </a>
-          </div>
+        <article class="edu__item reveal">
+          <span class="edu__date mono">2016 — 2021</span>
+          <h3 data-i18n="edu.school">Bachiller en Economía y Administración</h3>
+          <p class="muted">Instituto María Auxiliadora</p>
         </article>
       </div>
     </section>
 
     <!-- CONTACTO -->
-    <section id="contacto" class="container section reveal">
-      <div class="section__heading">
-        <span class="section__label">06 — Contacto</span>
-        <h2>Hablemos</h2>
-      </div>
+    <section id="contacto" class="container section">
+      <div class="contact reveal">
+        <span class="section__label mono">05</span>
+        <h2 data-i18n-html="contact.title">¿Buscás un dev junior <span class="grad">con ganas de aprender?</span></h2>
+        <p class="contact__text" data-i18n="contact.text">Respondo rápido. Escribime por mail, LinkedIn o WhatsApp, o descargá mi CV en el idioma que necesites.</p>
 
-      <div class="contact-block card">
-        <p class="contact-block__text">
-          ¿Tenés una oportunidad o simplemente querés charlar? Mandame un mensaje.
-        </p>
-        <div class="contact-block__actions">
-          <a class="btn btn--primary" href="mailto:agus.lopez042004@gmail.com">Mandar email</a>
+        <div class="contact__actions">
+          <a class="btn btn--primary" href="mailto:agus.lopez042004@gmail.com">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+            <span data-i18n="contact.mail">Mandame un email</span>
+          </a>
           <a class="btn btn--ghost" href="https://www.linkedin.com/in/aguslopezz/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn btn--ghost" href="https://github.com/Agusslo" target="_blank" rel="noopener">GitHub</a>
           <a class="btn btn--ghost" href="https://wa.me/541123756940" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+
+        <div class="cv-cards">
+          <a class="cv-card" href="Agustin_Lopez_CV.pdf" download>
+            <span class="cv-card__flag mono">ES</span>
+            <span><strong data-i18n="cv.es">CV en español</strong><small class="muted">PDF · 1 <span data-i18n="cv.page">página</span></small></span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </a>
+          <a class="cv-card" href="Agustin_Lopez_CV_EN.pdf" download>
+            <span class="cv-card__flag mono">EN</span>
+            <span><strong data-i18n="cv.en">CV en inglés</strong><small class="muted">PDF · 1 <span data-i18n="cv.page">página</span></small></span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </a>
         </div>
       </div>
     </section>
@@ -388,10 +391,8 @@
   <footer class="footer">
     <div class="container footer__inner">
       <span>© <span id="year"></span> Agustín Nicolás López</span>
-      <a href="#top" class="to-top">
-        Volver arriba
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
-      </a>
+      <span class="mono muted" data-i18n="footer.made">Hecho a mano con HTML, CSS y JS</span>
+      <a href="#top" class="to-top"><span data-i18n="footer.top">Volver arriba</span> ↑</a>
     </div>
   </footer>
 
