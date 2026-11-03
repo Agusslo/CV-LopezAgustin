@@ -375,5 +375,7 @@ html.anim [data-anim], html.anim .hero__title .word, html.anim .hero__jp { visib
   .speedlines { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  html { scroll-behavior: auto; }
+  .marquee__track, .status__dot, .caret, .live-chip .pill__dot { animation: none !important; }
+  .cursor-dot { display: none; }
 }

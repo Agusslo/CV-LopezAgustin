@@ -264,11 +264,13 @@ if (tLike) {
   tLike.addEventListener("click", () => {
     const on = tLike.classList.toggle("on");
     tLikes.textContent = String(Number(tLikes.textContent) + (on ? 1 : -1));
-    if (hasGsap && !reduceMotion) gsap.fromTo(tLike, { scale: 1.5 }, { scale: 1, duration: .5, ease: "back.out(3)" });
+    if (hasGsap) gsap.fromTo(tLike, { scale: 1.5 }, { scale: 1, duration: .5, ease: "back.out(3)" });
   });
 }
 
-if (hasGsap && !reduceMotion) {
+// Con "menos movimiento" activado se mantienen las entradas (son cortas y de una sola vez),
+// pero se apagan los movimientos continuos: líneas girando, posts flotando y cursor.
+if (hasGsap) {
   gsap.registerPlugin(ScrollTrigger);
   root.classList.add("anim");
 
@@ -285,8 +287,10 @@ if (hasGsap && !reduceMotion) {
     .from(".speedlines line", { opacity: 0, duration: .8, stagger: { each: .01, from: "random" } }, 0)
     .from(".hero__kanji", { opacity: 0, y: 40, duration: 1.4 }, 0);
 
-  gsap.to(".speedlines", { rotate: 360, duration: 120, repeat: -1, ease: "none" });
-  gsap.to(".panel__sfx", { y: -6, rotate: 16, duration: 1.6, repeat: -1, yoyo: true, ease: "sine.inOut" });
+  if (!reduceMotion) {
+    gsap.to(".speedlines", { rotate: 360, duration: 120, repeat: -1, ease: "none" });
+    gsap.to(".panel__sfx", { y: -6, rotate: 16, duration: 1.6, repeat: -1, yoyo: true, ease: "sine.inOut" });
+  }
 
   // Kanji del hero con parallax
   gsap.to(".hero__kanji", { yPercent: 35, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
@@ -328,12 +332,12 @@ if (hasGsap && !reduceMotion) {
   gsap.from(".stat", { y: 30, opacity: 0, duration: .7, stagger: .08, ease: "back.out(1.6)", scrollTrigger: { trigger: ".stats", start: "top 90%" } });
 
   // Posts de TONARI flotando
-  gsap.to(".tonari .post", { y: -8, duration: 2.4, stagger: .6, repeat: -1, yoyo: true, ease: "sine.inOut" });
+  if (!reduceMotion) gsap.to(".tonari .post", { y: -8, duration: 2.4, stagger: .6, repeat: -1, yoyo: true, ease: "sine.inOut" });
   gsap.from(".tonari .post", { x: 60, opacity: 0, duration: .9, stagger: .2, ease: "power3.out", scrollTrigger: { trigger: ".tonari", start: "top 80%" } });
   gsap.fromTo(".contact__sfx", { scale: 0, rotate: -30 }, { scale: 1, rotate: 10, duration: .7, ease: "back.out(3)", scrollTrigger: { trigger: ".contact", start: "top 75%" } });
 
   // ── Botones magnéticos ──
-  if (window.matchMedia("(hover: hover)").matches) {
+  if (window.matchMedia("(hover: hover)").matches && !reduceMotion) {
     document.querySelectorAll(".magnetic").forEach(btn => {
       const xTo = gsap.quickTo(btn, "x", { duration: .4, ease: "power3" });
       const yTo = gsap.quickTo(btn, "y", { duration: .4, ease: "power3" });
