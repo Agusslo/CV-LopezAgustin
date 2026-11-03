@@ -28,7 +28,7 @@ const EN = {
   "cv.page": "page",
 
   "stats.app": "full stack apps published",
-  "stats.years": "years leading teams",
+  "stats.years": "years in customer-facing roles",
   "stats.utn": "advanced student",
   "stats.lang": "bilingual resume & portfolio",
 
