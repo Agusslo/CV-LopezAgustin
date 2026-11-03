@@ -4,24 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Agustín Nicolás López — Full Stack Developer Jr</title>
-  <meta name="description" content="Portfolio de Agustín Nicolás López, desarrollador Full Stack junior con Angular, TypeScript y Supabase." />
-  <meta name="theme-color" content="#070b13" />
+  <meta name="description" content="Portfolio de Agustín Nicolás López, desarrollador Full Stack junior con Angular, TypeScript, NestJS y Supabase." />
+  <meta name="theme-color" content="#faf7f2" />
   <meta property="og:title" content="Agustín Nicolás López — Full Stack Developer Jr" />
-  <meta property="og:description" content="Angular · TypeScript · Supabase. Proyectos, experiencia y CV en español e inglés." />
+  <meta property="og:description" content="Angular · TypeScript · NestJS · Supabase. Proyectos, experiencia y CV en español e inglés." />
   <meta property="og:type" content="website" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233d7eff'/%3E%3Cpath d='M8 24L13.5 10H18.5L24 24H21L19.6 20H12.4L11 24H8ZM13.3 17.5H18.7L16 11L13.3 17.5Z' fill='white'/%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2315171d'/%3E%3Ccircle cx='23' cy='9' r='4' fill='%23ff5d8f'/%3E%3Cpath d='M8 24L13.5 10H18.5L24 24H21L19.6 20H12.4L11 24H8ZM13.3 17.5H18.7L16 11L13.3 17.5Z' fill='white'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Zen+Maru+Gothic:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <script>
     /* Aplica tema e idioma antes de pintar, para evitar parpadeo */
     (function () {
       try {
         var t = localStorage.getItem("theme");
-        if (t === "light" || (!t && matchMedia("(prefers-color-scheme: light)").matches)) {
-          document.documentElement.classList.add("light");
-        }
+        if (t === "dark") document.documentElement.classList.add("dark");
         var l = localStorage.getItem("lang") || ((navigator.language || "es").toLowerCase().indexOf("es") === 0 ? "es" : "en");
         document.documentElement.setAttribute("data-lang", l);
       } catch (e) {}
@@ -30,19 +28,14 @@
 </head>
 <body>
   <a class="skip" href="#proyectos" data-i18n="skip">Saltar a proyectos</a>
-  <div class="bg-grid" aria-hidden="true"></div>
-  <div class="bg-glow" aria-hidden="true"></div>
+  <div class="bg-dots" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
 
   <!-- NAV -->
   <header class="nav" id="nav">
     <div class="container nav__inner">
       <a class="brand" href="#top" aria-label="agus.dev">
-        <svg class="brand__logo" width="32" height="32" viewBox="0 0 34 34" fill="none" aria-hidden="true">
-          <rect width="34" height="34" rx="9" fill="#3d7eff"/>
-          <path d="M7.5 25L12.8 11H15.4L20.7 25H18.1L16.8 21.5H11.4L10.1 25H7.5ZM12.1 19.5H16.1L14.1 13.8L12.1 19.5Z" fill="white"/>
-          <rect x="21.5" y="11" width="2.2" height="11.5" rx="1.1" fill="white"/>
-          <rect x="21.5" y="20.5" width="5" height="2.2" rx="1.1" fill="white"/>
-        </svg>
+        <span class="brand__mark" aria-hidden="true">ア</span>
         <span class="brand__text">agus<span class="brand__accent">.</span>dev</span>
       </a>
 
@@ -71,45 +64,51 @@
   </header>
 
   <main id="top">
-
     <!-- HERO -->
     <section class="hero container">
+      <span class="hero__kanji" aria-hidden="true">開発者</span>
+      <svg class="speedlines" viewBox="0 0 600 600" aria-hidden="true">
+        <g id="lines"></g>
+      </svg>
+
       <div class="hero__content">
-        <p class="status reveal">
+        <p class="bubble" data-anim="pop">
           <span class="status__dot"></span>
           <span data-i18n="hero.status">Disponible para mi primer rol como desarrollador</span>
         </p>
 
-        <h1 class="hero__title reveal">
-          Agustín<br />Nicolás <span class="grad">López</span>
+        <h1 class="hero__title">
+          <span class="line"><span class="word">Agustín</span></span>
+          <span class="line"><span class="word">Nicolás <span class="mark">López</span></span></span>
         </h1>
+        <p class="hero__jp mono" aria-hidden="true">アグスティン ・ ロペス — full stack</p>
 
-        <p class="hero__role reveal">
+        <p class="hero__role" data-anim="up">
           <span data-i18n="hero.role">Desarrollador Full Stack Jr</span>
           <span class="hero__role-sep">/</span>
-          <span class="mono">Angular · TypeScript · Supabase</span>
+          <span class="mono">Angular · TypeScript · NestJS · Supabase</span>
         </p>
 
-        <p class="hero__pitch reveal" data-i18n-html="hero.pitch">
-          Construyo aplicaciones web completas, del modelo de datos al deploy. Tengo una app en producción con
-          <strong>autenticación, roles, tiempo real y PWA</strong>, y más de 4 años liderando equipos en atención al público.
+        <p class="hero__pitch" data-anim="up" data-i18n-html="hero.pitch">
+          Construyo aplicaciones web completas, del modelo de datos al deploy. Tengo apps publicadas con
+          <strong>autenticación, roles, tiempo real y APIs propias</strong>, y más de 4 años liderando equipos en atención al público.
         </p>
 
-        <div class="hero__cta reveal">
+        <div class="hero__cta" data-anim="up">
           <div class="cv-split">
-            <a class="btn btn--primary" id="cvMain" href="Agustin_Lopez_CV.pdf" download>
+            <a class="btn btn--primary magnetic" id="cvMain" href="Agustin_Lopez_CV.pdf" download>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               <span data-i18n="cv.download">Descargar CV</span>
             </a>
             <a class="btn btn--primary btn--alt" id="cvAlt" href="Agustin_Lopez_CV_EN.pdf" download data-i18n-title="cv.altTitle" title="Versión en inglés">EN</a>
           </div>
-          <a class="btn btn--ghost" href="#proyectos">
+          <a class="btn btn--ghost magnetic" href="#proyectos">
             <span data-i18n="hero.seeProjects">Ver proyectos</span>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
           </a>
         </div>
 
-        <ul class="socials reveal">
+        <ul class="socials" data-anim="up">
           <li><a href="https://github.com/Agusslo" target="_blank" rel="noopener" aria-label="GitHub">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
           </a></li>
@@ -125,46 +124,93 @@
         </ul>
       </div>
 
-      <!-- Tarjeta tipo editor -->
-      <aside class="code-card reveal" aria-label="Resumen">
-        <div class="code-card__bar">
-          <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
-          <span class="code-card__file mono">agustin.ts</span>
-        </div>
+      <!-- Panel tipo manga con el resumen -->
+      <aside class="panel hero__panel" data-anim="panel" aria-label="Resumen">
+        <div class="panel__tab mono">profile.ts <span class="panel__jp">プロフィール</span></div>
         <pre class="code mono"><code><span class="k">const</span> <span class="v">agustin</span> = {
   <span class="p">role</span>: <span class="s">"Full Stack Dev Jr"</span>,
-  <span class="p">stack</span>: [<span class="s">"Angular"</span>, <span class="s">"TypeScript"</span>,
-          <span class="s">"Supabase"</span>, <span class="s">"PostgreSQL"</span>],
+  <span class="p">stack</span>: [<span class="s">"Angular"</span>, <span class="s">"NestJS"</span>,
+          <span class="s">"Supabase"</span>, <span class="s">"MongoDB"</span>],
   <span class="p">location</span>: <span class="s">"Buenos Aires, AR"</span>,
   <span class="p">studying</span>: <span class="s">"UTN · Tec. Programación"</span>,
-  <span class="p">languages</span>: [<span class="s">"es"</span>, <span class="s">"en"</span>],
   <span class="p">openToWork</span>: <span class="b">true</span>,
 };<span class="caret"></span></code></pre>
-        <div class="code-card__foot">
-          <span class="mono muted" data-i18n="hero.lastShip">último deploy →</span>
-          <a class="mono" href="https://hollownestcinema.vercel.app/" target="_blank" rel="noopener">hollownestcinema.vercel.app ↗</a>
+        <div class="panel__foot">
+          <span class="mono muted" data-i18n="hero.lastShip">últimos deploys →</span>
+          <a class="mono" href="https://tonari-front.vercel.app/" target="_blank" rel="noopener">tonari ↗</a>
+          <a class="mono" href="https://catalogo-demo-delta.vercel.app/" target="_blank" rel="noopener">catálogo ↗</a>
         </div>
+        <span class="panel__sfx" aria-hidden="true">ドン</span>
       </aside>
     </section>
 
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track mono">
+        <span>Angular</span><i>✦</i><span>TypeScript</span><i>✦</i><span>NestJS</span><i>✦</i><span>Supabase</span><i>✦</i><span>PostgreSQL</span><i>✦</i><span>MongoDB</span><i>✦</i><span>JWT</span><i>✦</i><span>PWA</span><i>✦</i><span>Ionic</span><i>✦</i><span>Vercel</span><i>✦</i>
+        <span>Angular</span><i>✦</i><span>TypeScript</span><i>✦</i><span>NestJS</span><i>✦</i><span>Supabase</span><i>✦</i><span>PostgreSQL</span><i>✦</i><span>MongoDB</span><i>✦</i><span>JWT</span><i>✦</i><span>PWA</span><i>✦</i><span>Ionic</span><i>✦</i><span>Vercel</span><i>✦</i>
+      </div>
+    </div>
+
     <!-- STATS -->
-    <section class="container stats reveal" aria-label="Datos">
-      <div class="stat"><span class="stat__n">1</span><span class="stat__l" data-i18n="stats.app">app full stack en producción</span></div>
-      <div class="stat"><span class="stat__n">4+</span><span class="stat__l" data-i18n="stats.years">años liderando equipos</span></div>
+    <section class="container stats" aria-label="Datos">
+      <div class="stat"><span class="stat__n" data-count="3">3</span><span class="stat__l" data-i18n="stats.app">apps full stack publicadas</span></div>
+      <div class="stat"><span class="stat__n"><span data-count="4">4</span>+</span><span class="stat__l" data-i18n="stats.years">años liderando equipos</span></div>
       <div class="stat"><span class="stat__n">UTN</span><span class="stat__l" data-i18n="stats.utn">estudiante avanzado</span></div>
       <div class="stat"><span class="stat__n">ES·EN</span><span class="stat__l" data-i18n="stats.lang">CV y portfolio bilingüe</span></div>
     </section>
 
     <!-- PROYECTOS -->
     <section id="proyectos" class="container section">
-      <header class="section__head reveal">
-        <span class="section__label mono">01</span>
+      <header class="section__head">
+        <span class="section__label mono">01 <span class="jp">プロジェクト</span></span>
         <h2 data-i18n="projects.title">Proyectos</h2>
         <p class="section__sub" data-i18n="projects.sub">Lo que construí y lo que aprendí haciéndolo.</p>
       </header>
 
-      <!-- Destacado -->
-      <article class="feature reveal">
+      <!-- TONARI -->
+      <article class="feature panel feature--tonari" data-anim="panel">
+        <div class="feature__body">
+          <div class="feature__top">
+            <span class="pill pill--wip"><span class="pill__dot"></span><span data-i18n="projects.wip">En desarrollo</span></span>
+            <span class="mono muted">Programación IV · UTN</span>
+          </div>
+          <h3>TONARI <span class="kanji">隣</span></h3>
+          <p class="feature__lead" data-i18n="p0.lead">Red social para comunidades de anime, manga, ilustración y videojuegos. Frontend en Angular y una API REST propia hecha desde cero con NestJS y MongoDB.</p>
+          <ul class="checks">
+            <li data-i18n-html="p0.f1"><strong>API propia en NestJS</strong> con MongoDB Atlas y status HTTP correctos</li>
+            <li data-i18n-html="p0.f2"><strong>Autenticación JWT</strong> con vencimiento y refresco de sesión, roles usuario y admin</li>
+            <li data-i18n-html="p0.f3">Publicaciones con imagen, <strong>me gusta, comentarios</strong> paginados y seguidores</li>
+            <li data-i18n-html="p0.f4">Subida de imágenes con <strong>Cloudinary</strong> y skeletons de carga</li>
+            <li data-i18n-html="p0.f5"><strong>Dashboard admin</strong> con gestión de usuarios y estadísticas</li>
+          </ul>
+          <ul class="tags">
+            <li>Angular</li><li>NestJS</li><li>MongoDB</li><li>JWT</li><li>Cloudinary</li><li>PWA</li><li>Vercel</li>
+          </ul>
+          <div class="feature__actions">
+            <a class="btn btn--primary btn--sm magnetic" href="https://tonari-front.vercel.app/" target="_blank" rel="noopener">
+              <span data-i18n="projects.demo">Ver demo</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="feature__visual tonari" aria-hidden="true">
+          <span class="tonari__kanji">隣</span>
+          <div class="post">
+            <div class="post__head"><span class="avatar a1"></span><span><b>sakura_draws</b><small>#ilustración</small></span></div>
+            <div class="post__img"><span>✦</span></div>
+            <div class="post__acts"><span class="like" id="tLike">♥ <b id="tLikes">128</b></span><span>💬 24</span></div>
+          </div>
+          <div class="post post--small">
+            <div class="post__head"><span class="avatar a2"></span><span><b>kenji.dev</b><small>¿Qué anime recomiendan?</small></span></div>
+          </div>
+          <span class="tonari__slogan mono">Un mundo más cerca</span>
+        </div>
+      </article>
+
+      <!-- HOLLOWNEST -->
+      <article class="feature panel" data-anim="panel">
         <div class="feature__body">
           <div class="feature__top">
             <span class="pill pill--live"><span class="pill__dot"></span><span data-i18n="projects.live">En producción</span></span>
@@ -172,30 +218,25 @@
           </div>
           <h3>Hollownest Cinema</h3>
           <p class="feature__lead" data-i18n="p1.lead">Sistema completo de venta de entradas para un cine, construido a partir de requisitos de un cliente que fueron cambiando durante el cuatrimestre.</p>
-
           <ul class="checks">
             <li data-i18n-html="p1.f1"><strong>Supabase + PostgreSQL</strong> con Row Level Security, login con email y Google</li>
             <li data-i18n-html="p1.f2"><strong>Roles</strong> cliente, empleado y admin con guards de rutas</li>
             <li data-i18n-html="p1.f3"><strong>Butacas en tiempo real</strong> con Supabase Realtime</li>
             <li data-i18n-html="p1.f4"><strong>Entradas en PDF con QR</strong> y validación escaneando con la cámara</li>
-            <li data-i18n-html="p1.f5">Candy bar, cupones, combos, <strong>puntos de fidelización</strong> y cancelación con crédito</li>
             <li data-i18n-html="p1.f6">Panel admin con <strong>reportes, gráficos</strong> y log de actividad · <strong>PWA</strong> instalable</li>
           </ul>
-
           <ul class="tags">
-            <li>Angular</li><li>TypeScript</li><li>Signals</li><li>Supabase</li><li>PostgreSQL</li><li>Realtime</li><li>PWA</li><li>Vercel</li>
+            <li>Angular</li><li>TypeScript</li><li>Signals</li><li>Supabase</li><li>PostgreSQL</li><li>Realtime</li><li>PWA</li>
           </ul>
-
           <div class="feature__actions">
-            <a class="btn btn--primary btn--sm" href="https://hollownestcinema.vercel.app/" target="_blank" rel="noopener">
+            <a class="btn btn--primary btn--sm magnetic" href="https://hollownestcinema.vercel.app/" target="_blank" rel="noopener">
               <span data-i18n="projects.demo">Ver demo</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
             </a>
           </div>
         </div>
 
-        <!-- Mini mockup de butacas -->
-        <div class="feature__visual" aria-hidden="true">
+        <div class="feature__visual cinema" aria-hidden="true">
           <div class="screen"></div>
           <div class="seats" id="seats"></div>
           <div class="seats__legend mono">
@@ -208,24 +249,47 @@
       </article>
 
       <div class="projects">
-        <article class="card reveal">
+        <article class="card panel" data-anim="card">
+          <div class="card__top">
+            <span class="pill pill--live"><span class="pill__dot"></span>Demo</span>
+            <span class="mono muted">Freelance</span>
+          </div>
+          <h3 data-i18n="p6.title">Menú online con pedidos por WhatsApp</h3>
+          <p data-i18n="p6.desc">Catálogo para comercios: el cliente arma el pedido desde el celular y llega listo al WhatsApp del local. El dueño cambia precios y stock desde su panel.</p>
+          <ul class="tags tags--sm"><li>Angular</li><li>Supabase</li><li>RLS</li><li>Vercel</li></ul>
+          <div class="card__links">
+            <a href="https://catalogo-demo-delta.vercel.app/" target="_blank" rel="noopener"><span data-i18n="projects.demo">Demo</span> ↗</a>
+            <a href="https://github.com/Agusslo/catalogo-demo" target="_blank" rel="noopener"><span data-i18n="projects.code">Código</span> ↗</a>
+          </div>
+        </article>
+
+        <article class="card panel" data-anim="card">
           <div class="card__top">
             <span class="pill pill--wip" data-i18n="projects.wip">En desarrollo</span>
             <span class="mono muted" data-i18n="projects.thesis">Proyecto final</span>
           </div>
           <h3>OverCooked 2026</h3>
-          <p data-i18n="p2.desc">App móvil multiplataforma para la gestión de un restaurante, con backend en Supabase y trabajo organizado por ramas.</p>
-          <ul class="tags tags--sm"><li>Ionic</li><li>Capacitor</li><li>TypeScript</li><li>Supabase</li></ul>
+          <p data-i18n="p2.desc">App móvil para la gestión de un restaurante, hecha en equipo de 4 con ramas por integrante. Hice las altas, el registro con QR del DNI y la encuesta.</p>
+          <ul class="tags tags--sm"><li>Ionic</li><li>Capacitor</li><li>Angular</li><li>Supabase</li></ul>
           <div class="card__links">
             <a href="https://overcooked-one.vercel.app/" target="_blank" rel="noopener"><span data-i18n="projects.demo">Demo</span> ↗</a>
             <a href="https://github.com/Agusslo/OverCooked-2026" target="_blank" rel="noopener"><span data-i18n="projects.code">Código</span> ↗</a>
           </div>
         </article>
 
-        <article class="card reveal">
-          <div class="card__top">
-            <span class="pill">Landing</span>
+        <article class="card panel" data-anim="card">
+          <div class="card__top"><span class="pill">Tool</span></div>
+          <h3>Aguss Tools</h3>
+          <p data-i18n="p7.desc">Convertidor de archivos que corre 100% en el navegador: imágenes, PDF, DOCX y Markdown, sin subir nada a ningún servidor.</p>
+          <ul class="tags tags--sm"><li>JavaScript</li><li>jsPDF</li><li>pdf.js</li></ul>
+          <div class="card__links">
+            <a href="https://agusslo.github.io/Convertidor/" target="_blank" rel="noopener"><span data-i18n="projects.site">Sitio</span> ↗</a>
+            <a href="https://github.com/Agusslo/Convertidor" target="_blank" rel="noopener"><span data-i18n="projects.code">Código</span> ↗</a>
           </div>
+        </article>
+
+        <article class="card panel" data-anim="card">
+          <div class="card__top"><span class="pill">Landing</span></div>
           <h3>Piece Tech</h3>
           <p data-i18n="p3.desc">Landing comercial sin frameworks: animaciones al hacer scroll, efecto 3D tilt y contacto directo por WhatsApp.</p>
           <ul class="tags tags--sm"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
@@ -234,64 +298,40 @@
             <a href="https://github.com/Agusslo/PieceTech" target="_blank" rel="noopener"><span data-i18n="projects.code">Código</span> ↗</a>
           </div>
         </article>
-
-        <article class="card reveal">
-          <div class="card__top">
-            <span class="pill">E-commerce</span>
-          </div>
-          <h3>GameSense</h3>
-          <p data-i18n="p4.desc">Tienda online con carrito, autenticación, validación de formularios y base de datos MySQL.</p>
-          <ul class="tags tags--sm"><li>JavaScript</li><li>MySQL</li><li>HTML</li><li>CSS</li></ul>
-          <div class="card__links">
-            <a href="https://github.com/Agusslo/GameSense-utn-p3" target="_blank" rel="noopener"><span data-i18n="projects.code">Código</span> ↗</a>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <div class="card__top">
-            <span class="pill" data-i18n="projects.game">Videojuego</span>
-          </div>
-          <h3>Meap War</h3>
-          <p data-i18n="p5.desc">Juego arcade 2D con colisiones, controles del jugador, sistema de puntaje y pantallas de inicio y fin.</p>
-          <ul class="tags tags--sm"><li>Python</li><li>Pygame</li></ul>
-          <div class="card__links">
-            <a href="https://github.com/Agusslo/Meap-War-Pygame" target="_blank" rel="noopener"><span data-i18n="projects.code">Código</span> ↗</a>
-          </div>
-        </article>
       </div>
     </section>
 
     <!-- SKILLS -->
     <section id="skills" class="container section">
-      <header class="section__head reveal">
-        <span class="section__label mono">02</span>
+      <header class="section__head">
+        <span class="section__label mono">02 <span class="jp">スキル</span></span>
         <h2 data-i18n="skills.title">Skills</h2>
         <p class="section__sub" data-i18n="skills.sub">Lo que uso todos los días, y lo que ya trabajé en la carrera.</p>
       </header>
 
       <div class="skills">
-        <article class="skill reveal">
+        <article class="skill panel" data-anim="card">
           <h3><span class="skill__ico mono">&lt;/&gt;</span>Frontend</h3>
           <ul class="tags">
-            <li class="tag--hl">Angular</li><li class="tag--hl">TypeScript</li><li>JavaScript</li><li>HTML5</li><li>CSS3</li><li>Sass</li><li>React</li><li>Ionic</li><li>PWA</li>
+            <li class="tag--hl">Angular</li><li class="tag--hl">TypeScript</li><li>JavaScript</li><li>HTML5</li><li>CSS3</li><li>Sass</li><li>Ionic</li><li>PWA</li><li>React</li>
           </ul>
         </article>
-        <article class="skill reveal">
+        <article class="skill panel" data-anim="card">
           <h3><span class="skill__ico mono">{ }</span><span data-i18n="skills.back">Backend y datos</span></h3>
           <ul class="tags">
-            <li class="tag--hl">Supabase</li><li class="tag--hl">PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>SQL</li><li>Node.js</li><li>Express.js</li><li data-i18n="skills.rest">APIs REST</li>
+            <li class="tag--hl">NestJS</li><li class="tag--hl">Supabase</li><li class="tag--hl">PostgreSQL</li><li>MongoDB</li><li>Node.js</li><li>Express</li><li>JWT</li><li data-i18n="skills.rest">APIs REST</li><li>MySQL</li><li>SQL Server</li>
           </ul>
         </article>
-        <article class="skill reveal">
+        <article class="skill panel" data-anim="card">
           <h3><span class="skill__ico mono">$_</span><span data-i18n="skills.tools">Herramientas</span></h3>
           <ul class="tags">
-            <li>Git</li><li>GitHub</li><li>Vercel</li><li>Capacitor</li><li>VS Code</li><li>Linux</li>
+            <li>Git</li><li>GitHub</li><li>Vercel</li><li>Cloudinary</li><li>Capacitor</li><li>VS Code</li><li>Linux</li>
           </ul>
         </article>
-        <article class="skill reveal">
+        <article class="skill panel" data-anim="card">
           <h3><span class="skill__ico mono">#</span><span data-i18n="skills.other">Otros lenguajes</span></h3>
           <ul class="tags">
-            <li>Python</li><li>C</li><li>C#</li><li>Java</li><li>Lua</li>
+            <li>C#</li><li>Java</li><li>Python</li><li>C</li><li>GDScript</li><li>Lua</li>
           </ul>
         </article>
       </div>
@@ -299,28 +339,28 @@
 
     <!-- EXPERIENCIA -->
     <section id="experiencia" class="container section">
-      <header class="section__head reveal">
-        <span class="section__label mono">03</span>
+      <header class="section__head">
+        <span class="section__label mono">03 <span class="jp">経験</span></span>
         <h2 data-i18n="exp.title">Experiencia</h2>
         <p class="section__sub" data-i18n="exp.sub">Antes de programar, aprendí a coordinar equipos y resolver problemas reales todos los días.</p>
       </header>
 
       <ol class="timeline">
-        <li class="tl reveal">
-          <span class="tl__date mono" data-i18n="exp.d1">2024 — Actualidad</span>
-          <div class="tl__body">
-            <h3><span data-i18n="exp.manager">Encargado</span> <span class="at">@ Kiosco Baires10</span></h3>
-            <p data-i18n="exp.t1">Coordino al personal, la caja, el stock y los pedidos a proveedores; resuelvo los problemas del día a día.</p>
-          </div>
-        </li>
-        <li class="tl reveal">
-          <span class="tl__date mono">2024 — 2025</span>
+        <li class="tl" data-anim="tl">
+          <span class="tl__date mono" data-i18n="exp.d2">2024 — Actualidad</span>
           <div class="tl__body">
             <h3>Community Manager <span class="at">@ Freelance</span></h3>
             <p data-i18n="exp.t2">Gestión de redes para varias cuentas: contenido, calendario editorial y análisis de métricas para mejorar resultados.</p>
           </div>
         </li>
-        <li class="tl reveal">
+        <li class="tl" data-anim="tl">
+          <span class="tl__date mono" data-i18n="exp.d1">Temporadas 2024 — 2026</span>
+          <div class="tl__body">
+            <h3><span data-i18n="exp.manager">Encargado</span> <span class="at">@ Kiosco Baires10</span></h3>
+            <p data-i18n="exp.t1">Coordino personal, caja, stock y proveedores en la temporada de Las Toninas. Desarrollé una web propia para gestionar el stock del local.</p>
+          </div>
+        </li>
+        <li class="tl" data-anim="tl">
           <span class="tl__date mono">2021 — 2024</span>
           <div class="tl__body">
             <h3><span data-i18n="exp.manager">Encargado</span> <span class="at">@ Helados &amp; Café Pirulo</span></h3>
@@ -332,23 +372,28 @@
 
     <!-- EDUCACIÓN -->
     <section id="educacion" class="container section">
-      <header class="section__head reveal">
-        <span class="section__label mono">04</span>
+      <header class="section__head">
+        <span class="section__label mono">04 <span class="jp">学歴</span></span>
         <h2 data-i18n="edu.title">Educación</h2>
       </header>
 
       <div class="edu">
-        <article class="edu__item reveal">
+        <article class="edu__item panel" data-anim="card">
           <span class="edu__date mono" data-i18n="edu.d1">2022 — Actualidad</span>
           <h3 data-i18n="edu.utn">Tecnicatura Superior en Sistemas de Programación</h3>
           <p class="muted" data-i18n="edu.utnSub">UTN Avellaneda · Estudiante avanzado, con el proyecto final en curso</p>
         </article>
-        <article class="edu__item reveal">
+        <article class="edu__item panel" data-anim="card">
+          <span class="edu__date mono">2025</span>
+          <h3>Oracle Cloud Infrastructure 2025 AI Foundations Associate</h3>
+          <p class="muted" data-i18n="edu.oracleSub">Certificación oficial de Oracle</p>
+        </article>
+        <article class="edu__item panel" data-anim="card">
           <span class="edu__date mono">2026</span>
           <h3 data-i18n="edu.uba">Inglés como Lengua Extranjera — Nivel 6</h3>
           <p class="muted" data-i18n="edu.ubaSub">Laboratorio de Idiomas · Facultad de Filosofía y Letras (UBA)</p>
         </article>
-        <article class="edu__item reveal">
+        <article class="edu__item panel" data-anim="card">
           <span class="edu__date mono">2016 — 2021</span>
           <h3 data-i18n="edu.school">Bachiller en Economía y Administración</h3>
           <p class="muted">Instituto María Auxiliadora</p>
@@ -358,18 +403,18 @@
 
     <!-- CONTACTO -->
     <section id="contacto" class="container section">
-      <div class="contact reveal">
-        <span class="section__label mono">05</span>
-        <h2 data-i18n-html="contact.title">¿Buscás un dev junior <span class="grad">con ganas de aprender?</span></h2>
+      <div class="contact panel" data-anim="panel">
+        <span class="section__label mono">05 <span class="jp">連絡</span></span>
+        <h2 data-i18n-html="contact.title">¿Buscás un dev junior <span class="mark">con ganas de aprender?</span></h2>
         <p class="contact__text" data-i18n="contact.text">Respondo rápido. Escribime por mail, LinkedIn o WhatsApp, o descargá mi CV en el idioma que necesites.</p>
 
         <div class="contact__actions">
-          <a class="btn btn--primary" href="mailto:agus.lopez042004@gmail.com">
+          <a class="btn btn--primary magnetic" href="mailto:agus.lopez042004@gmail.com">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
             <span data-i18n="contact.mail">Mandame un email</span>
           </a>
-          <a class="btn btn--ghost" href="https://www.linkedin.com/in/aguslopezz/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn btn--ghost" href="https://wa.me/541123756940" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn--ghost magnetic" href="https://www.linkedin.com/in/aguslopezz/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn--ghost magnetic" href="https://wa.me/541123756940" target="_blank" rel="noopener">WhatsApp</a>
         </div>
 
         <div class="cv-cards">
@@ -384,19 +429,21 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           </a>
         </div>
+        <span class="contact__sfx" aria-hidden="true">よろしく!</span>
       </div>
     </section>
-
   </main>
 
   <footer class="footer">
     <div class="container footer__inner">
       <span>© <span id="year"></span> Agustín Nicolás López</span>
-      <span class="mono muted" data-i18n="footer.made">Hecho a mano con HTML, CSS y JS</span>
+      <span class="mono muted" data-i18n="footer.made">Hecho a mano con HTML, CSS, JS y GSAP</span>
       <a href="#top" class="to-top"><span data-i18n="footer.top">Volver arriba</span> ↑</a>
     </div>
   </footer>
 
-  <script src="main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="main.js" defer></script>
 </body>
 </html>
