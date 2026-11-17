@@ -1,13 +1,13 @@
 # agus.dev — Portfolio de Agustín Nicolás López
 
-Portfolio personal bilingüe (español / inglés) hecho a mano con HTML, CSS y JavaScript, con estética anime clean y animaciones con GSAP + ScrollTrigger.
+Portfolio personal bilingüe (español / inglés) hecho a mano con HTML, CSS y JavaScript, con estética de cuaderno de bitácora y carta náutica, y animaciones con GSAP + ScrollTrigger.
 
 ## Funcionalidades
 - **Español / Inglés**: botón ES · EN en la barra. Detecta el idioma del navegador la primera vez y recuerda la elección en `localStorage`.
 - **CV en los dos idiomas**: el botón principal descarga el CV del idioma activo, y el botón chico al lado descarga el otro. En Contacto están las dos opciones.
 - **Tema claro / oscuro** con persistencia y sin parpadeo al cargar.
 - **Responsive** con menú mobile.
-- Animaciones con **GSAP + ScrollTrigger**: intro del hero, paneles tipo manga que entran al scrollear, contadores, timeline que se dibuja, botones magnéticos y cursor. Se desactivan si el usuario pide menos movimiento, y si GSAP no carga la página se ve igual, sin animar.
+- Animaciones con **GSAP + ScrollTrigger**: intro del hero, brújula que gira con el scroll, barco que cruza el mar, ruta lateral, paneles que entran al scrollear, contadores, timeline que se dibuja, botones magnéticos y cursor. Se desactivan si el usuario pide menos movimiento, y si GSAP no carga la página se ve igual, sin animar.
 - Mini mapa de butacas animado que simula el tiempo real de Hollownest Cinema, y vista previa interactiva de TONARI (el corazón da like).
 
 ## Cómo agregar o cambiar un texto

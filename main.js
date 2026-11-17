@@ -91,13 +91,20 @@ const EN = {
   "edu.oracleSub": "Official Oracle certification",
   "edu.school": "High School Diploma in Economics and Business",
 
-  "contact.title": "Looking for a junior dev <span class=\"grad\">who's eager to learn?</span>",
+  "contact.title": "Looking for a junior dev <span class=\"mark\">who's eager to learn?</span>",
   "contact.text": "I reply fast. Reach me by email, LinkedIn or WhatsApp, or download my resume in the language you need.",
   "contact.mail": "Send me an email",
 
   "footer.made": "Handcrafted with HTML, CSS, JS & GSAP",
   "footer.top": "Back to top",
 
+  "hero.course": "heading: full stack",
+  "hero.log": "Ship's log",
+  "lab.projects": "Voyages",
+  "lab.skills": "Instruments",
+  "lab.exp": "Logbook",
+  "lab.edu": "Charts",
+  "lab.contact": "Message in a bottle",
   "aria.theme": "Toggle theme",
   "aria.menu": "Open menu",
 };
@@ -163,7 +170,7 @@ setLang(root.getAttribute("data-lang") === "en" ? "en" : "es", false);
 document.getElementById("themeToggle").addEventListener("click", () => {
   const dark = root.classList.toggle("dark");
   try { localStorage.setItem("theme", dark ? "dark" : "light"); } catch (e) {}
-  document.querySelector('meta[name="theme-color"]').setAttribute("content", dark ? "#0f1117" : "#faf7f2");
+  document.querySelector('meta[name="theme-color"]').setAttribute("content", dark ? "#0b1826" : "#f3e7cb");
 });
 
 // ── Menú mobile ───────────────────────────────────────
@@ -243,16 +250,17 @@ if (seatsEl) {
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const hasGsap = typeof window.gsap !== "undefined" && typeof window.ScrollTrigger !== "undefined";
 
-// Líneas de velocidad del hero (estilo manga)
+// Líneas de rumbo del hero, como en una carta náutica antigua
 const linesG = document.getElementById("lines");
 if (linesG) {
   const NS = "http://www.w3.org/2000/svg";
-  for (let i = 0; i < 48; i++) {
-    const a = (i / 48) * Math.PI * 2;
-    const r1 = 120 + Math.random() * 60, r2 = 260 + Math.random() * 40;
+  for (let i = 0; i < 32; i++) {
+    const a = (i / 32) * Math.PI * 2;
+    const r2 = i % 4 === 0 ? 300 : i % 2 === 0 ? 270 : 235;
     const l = document.createElementNS(NS, "line");
-    l.setAttribute("x1", 300 + Math.cos(a) * r1); l.setAttribute("y1", 300 + Math.sin(a) * r1);
+    l.setAttribute("x1", 300 + Math.cos(a) * 62); l.setAttribute("y1", 300 + Math.sin(a) * 62);
     l.setAttribute("x2", 300 + Math.cos(a) * r2); l.setAttribute("y2", 300 + Math.sin(a) * r2);
+    if (i % 4 === 0) l.setAttribute("class", "main");
     linesG.appendChild(l);
   }
 }
@@ -284,18 +292,24 @@ if (hasGsap) {
     .from(".hero [data-anim='up']", { y: 26, opacity: 0, duration: .7, stagger: .08 }, "-=.4")
     .from(".hero__panel", { y: 80, rotate: 8, scale: .9, opacity: 0, duration: 1.1, ease: "elastic.out(1, .7)" }, "-=1")
     .from(".panel__sfx", { scale: 0, rotate: -40, duration: .6, ease: "back.out(3)" }, "-=.4")
-    .from(".speedlines line", { opacity: 0, duration: .8, stagger: { each: .01, from: "random" } }, 0)
-    .from(".hero__kanji", { opacity: 0, y: 40, duration: 1.4 }, 0);
+    .from(".speedlines line", { opacity: 0, duration: .8, stagger: { each: .015, from: "random" } }, 0)
+    .from(".compass", { opacity: 0, scale: .6, rotate: -90, transformOrigin: "50% 50%", duration: 1.6, ease: "power3.out" }, 0)
+    .from(".compass__needle", { rotate: -200, svgOrigin: "100 100", duration: 2.4, ease: "elastic.out(1, .35)" }, .3);
 
   if (!reduceMotion) {
-    gsap.to(".speedlines", { rotate: 360, duration: 120, repeat: -1, ease: "none" });
-    gsap.to(".panel__sfx", { y: -6, rotate: 16, duration: 1.6, repeat: -1, yoyo: true, ease: "sine.inOut" });
+    gsap.to(".compass__rose", { rotate: 360, svgOrigin: "100 100", duration: 160, repeat: -1, ease: "none" });
+    gsap.to(".ship__body", { rotate: 4, y: 3, transformOrigin: "50% 90%", duration: 2.2, repeat: -1, yoyo: true, ease: "sine.inOut" });
   }
 
-  // Kanji del hero con parallax
-  gsap.to(".hero__kanji", { yPercent: 35, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+  // La aguja de la brújula gira con el scroll y el barco cruza el mar
+  gsap.to(".compass__needle", { rotate: 540, svgOrigin: "100 100", ease: "none", scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: 1.2 } });
+  gsap.fromTo(".sea__ship", { xPercent: -120 }, { xPercent: 0, x: () => window.innerWidth * .78, ease: "none", scrollTrigger: { trigger: ".sea", start: "top bottom", end: "bottom top", scrub: .8, invalidateOnRefresh: true } });
 
-  // ── Paneles grandes: entran como viñetas de manga ──
+  // Ruta lateral: el barquito avanza hasta la X a medida que se recorre la página
+  gsap.to(".voyage__ship", { top: "100%", ease: "none", scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: .6 } });
+  gsap.to(".voyage__x", { scale: 1.5, color: "#c8372d", scrollTrigger: { trigger: "#contacto", start: "top 60%", toggleActions: "play none none reverse" } });
+
+  // ── Paneles grandes: entran como páginas del cuaderno ──
   gsap.utils.toArray("main [data-anim='panel']:not(.hero__panel)").forEach(el => {
     gsap.from(el, {
       y: 70, rotate: -2, opacity: 0, duration: 1, ease: "power3.out",
